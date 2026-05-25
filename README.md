@@ -1,0 +1,2 @@
+# dotfiles
+i use fedora
