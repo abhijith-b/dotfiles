@@ -1,6 +1,6 @@
 # ── Plugins ───────────────────────────────────────────────────────────────────
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ── History ───────────────────────────────────────────────────────────────────
 HISTSIZE=10000
@@ -31,16 +31,16 @@ alias klf='kubectl logs -f'
 alias ke='kubectl exec -it'
 alias kaf='kubectl apply -f'
 alias kdf='kubectl delete -f'
-alias kns='kubectl config set-context --current --namespace'
-alias kctx='kubectl config use-context'
 alias kctxs='kubectl config get-contexts'
 alias kcur='kubectl config current-context'
+# kctx and kns provided by kubectx/kubens
 alias kpf='kubectl port-forward'
 alias ktop='kubectl top pods'
 alias ktopp='kubectl top pods -A'
 alias ktopn='kubectl top nodes'
 alias kroll='kubectl rollout restart deployment'
 alias krs='kubectl rollout status deployment'
+alias k9='k9s'
 
 # ── Docker ────────────────────────────────────────────────────────────────────
 alias d='docker'
@@ -130,6 +130,12 @@ b64d() { echo -n "$1" | base64 -d }
 ksecret() { kubectl get secret "$1" -o jsonpath="{.data.$2}" | base64 -d; echo }
 
 kubecfg() { export KUBECONFIG="$1"; echo "KUBECONFIG set to $1" }
+
+# ── fzf ───────────────────────────────────────────────────────────────────────
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+# Ctrl+R: fuzzy history | Ctrl+T: fuzzy file | Alt+C: fuzzy cd
+[[ -f /usr/share/fzf/shell/key-bindings.zsh ]] && source /usr/share/fzf/shell/key-bindings.zsh
+[[ -f /usr/share/fzf/shell/completion.zsh   ]] && source /usr/share/fzf/shell/completion.zsh
 
 # ── Starship ──────────────────────────────────────────────────────────────────
 eval "$(starship init zsh)"
