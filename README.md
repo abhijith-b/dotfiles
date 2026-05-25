@@ -6,6 +6,8 @@ Personal dotfiles for a Fedora Linux environment. Managed via symlinks.
 
 ```
 dotfiles/
+├── git/
+│   └── .gitconfig      # Global git config with delta pager and aliases (hat tip: gist.github.com/pksunkara/988716)
 ├── zsh/
 │   └── .zshrc          # Zsh config with aliases for k8s, docker, aws, azure, terraform, git
 ├── starship/
@@ -46,3 +48,8 @@ sudo dnf install -y kubectx
 ```
 
 Then run `./install.sh` and open a new shell.
+
+> **Note:** `git/.gitconfig` does not include your smtp password. Set it separately:
+> ```bash
+> git config --global sendemail.smtppass <your-password>
+> ```

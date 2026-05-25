@@ -20,6 +20,7 @@ link() {
 
 link "$DOTFILES_DIR/zsh/.zshrc"            "$HOME/.zshrc"
 link "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
+link "$DOTFILES_DIR/git/.gitconfig"         "$HOME/.gitconfig"
 
 echo
 echo "Done. Run 'source ~/.zshrc' or open a new shell to apply changes."
