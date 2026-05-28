@@ -45,6 +45,11 @@ sudo dnf install -y kubectx
 # k9s (terminal UI for Kubernetes)
 # Download latest release from https://github.com/derailed/k9s/releases
 # and place the binary in /usr/local/bin/k9s
+
+# git
+# great diff viewer
+sudo dnf install git-delta
+
 ```
 
 Then run `./install.sh` and open a new shell.
